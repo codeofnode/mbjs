@@ -8,12 +8,13 @@
     "test": "./node_modules/.bin/c8 ./node_modules/.bin/allrounder -s lib",
     "devstart": "./node_modules/.bin/nodemon --watch lib --exec 'npm start'",
     "devtest": "./node_modules/.bin/nodemon --watch lib --exec 'npm test'",
-    "build": "rm -rf dist && mkdir dist && cp LICENSE CHANGELOG.md README.md dist/ && rsync -zqarvm --exclude='*.spec.json' lib/ dist",
+    "build": "rm -rf dist && mkdir dist && cp package.json LICENSE CHANGELOG.md README.md dist/ && rsync -zqarvm --exclude='*.spec.json' lib/ dist/lib && chmod +x dist/lib/bin.js && npm run mbjs -- build",
     "all": "npm run lint && npm test && npm run build && npm run docs",
     "docs": "./node_modules/.bin/jsdoc -c .jsdoc.json",
-    "lint": "./node_modules/.bin/standard --fix src",
+    "lint": "./node_modules/.bin/standard",
     "mbjs": "./node_modules/.bin/mbjs"
   },
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codeofnode/mbjs.git"
@@ -37,11 +38,15 @@
     "allrounder": "^0.7.1",
     "c8": "^6.0.1",
     "jsdoc": "^3.6.3",
+    "minami": "^1.2.3",
     "nodemon": "^2.0.1",
     "standard": "^14.3.1"
   },
   "dependencies": {
     "templist": "0.0.7",
     "yargs": "^15.0.2"
+  },
+  "config": {
+    "build": {}
   }
 }
