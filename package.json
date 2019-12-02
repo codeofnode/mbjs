@@ -2,19 +2,18 @@
   "name": "mbjs",
   "version": "0.0.1",
   "description": "Modular boilerplate for nodejs",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "node lib/bin.js",
     "test": "./node_modules/.bin/c8 ./node_modules/.bin/allrounder -s lib",
     "devstart": "./node_modules/.bin/nodemon --watch lib --exec 'npm start'",
     "devtest": "./node_modules/.bin/nodemon --watch lib --exec 'npm test'",
-    "build": "rm -rf dist && mkdir dist && cp package.json LICENSE CHANGELOG.md README.md dist/ && rsync -zqarvm --exclude='*.spec.json' lib/ dist/lib && chmod +x dist/lib/bin.js && npm run mbjs -- build",
+    "build": "npm run mbjs -- build",
     "all": "npm run lint && npm test && npm run build && npm run docs",
     "docs": "./node_modules/.bin/jsdoc -c .jsdoc.json",
     "lint": "./node_modules/.bin/standard",
     "mbjs": "./node_modules/.bin/mbjs"
   },
-  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codeofnode/mbjs.git"
@@ -37,6 +36,8 @@
   "devDependencies": {
     "allrounder": "^0.7.1",
     "c8": "^6.0.1",
+    "copyfiles": "^2.1.1",
+    "fs-extra": "^8.1.0",
     "jsdoc": "^3.6.3",
     "minami": "^1.2.3",
     "nodemon": "^2.0.1",
