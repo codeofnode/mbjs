@@ -48,6 +48,7 @@
     "yargs": "^15.0.2"
   },
   "config": {
-    "build": {}
+    "build": {},
+    "add": {}
   }
 }
