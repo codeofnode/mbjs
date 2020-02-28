@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node lib/bin.js",
     "test": "./node_modules/.bin/c8 ./node_modules/.bin/allrounder -s lib",
+    "devbuild": "./node_modules/.bin/nodemon --watch lib --exec 'npm run build'",
     "devstart": "./node_modules/.bin/nodemon --watch lib --exec 'npm start'",
     "devtest": "./node_modules/.bin/nodemon --watch lib --exec 'npm test'",
     "build": "npm run mbjs -- build",
